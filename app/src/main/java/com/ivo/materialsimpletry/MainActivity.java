@@ -1,12 +1,17 @@
 package com.ivo.materialsimpletry;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
+
+import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
+import com.ivo.materialsimpletry.greenmatter.SelectColorActivity;
+import com.negusoft.greenmatter.MatPalette;
+import com.negusoft.greenmatter.activity.MatActivity;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends MatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,23 +21,43 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        Intent intent =new Intent(this,SelectColorActivity.class);
+        startActivityForResult(intent, 1);
+
+        return true;
         }
 
-        return super.onOptionsItemSelected(item);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            recreate();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
+
+    @Override
+    public MatPalette overridePalette(MatPalette palette) {
+
+
+        return ColorOverrider.getInstance(palette).applyOverride(palette);
+
+//                palette.setColorAccent(Color.YELLOW);
+//        palette.setColorPrimary(0xff880000);
+//        palette.setColorPrimaryDark(0xff440000);
+//        palette.setColorControlHighlight(Color.GREEN);
+//        palette.setColorControlNormal(Color.MAGENTA);
+//        palette.setColorControlActivated(Color.CYAN);
+//        palette.setColorButtonNormal(0xff888800);
+//        palette.setColorSwitchThumbNormal(Color.WHITE);
+
+    }
+
+
 }

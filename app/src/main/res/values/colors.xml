@@ -1,0 +1,8 @@
+<resources>
+
+    <!-- Application's theme colors -->
+    <color name="primary">#ff516635</color>
+    <color name="primaryDark">#ff3f4f2b</color>
+    <color name="accent">#ff4ac358</color>
+
+</resources>
