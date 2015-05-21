@@ -2,16 +2,14 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.GreenMatter">
+    <style name="AppTheme" parent="Base.Theme.GreenMatter">
         <item name="matColorPrimary">@color/primary</item>
         <item name="matColorPrimaryDark">@color/primaryDark</item>
         <item name="matColorAccent">@color/accent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
-        <item name="android:windowActionBar">false</item>
         <item name="windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
         <item name="windowNoTitle">true</item>
     </style>
 

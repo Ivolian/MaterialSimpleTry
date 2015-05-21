@@ -3,6 +3,7 @@ package com.ivo.materialsimpletry;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 
 import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
@@ -28,16 +29,21 @@ public class MainActivity extends MatActivity {
     @Override
     public boolean onOptionsItemSelected(android.view.MenuItem item) {
 
-        Intent intent =new Intent(this,SelectColorActivity.class);
+        Intent intent = new Intent(this, SelectColorActivity.class);
         startActivityForResult(intent, 1);
 
         return true;
-        }
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
-            recreate();
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    recreate();
+                }
+            });
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
