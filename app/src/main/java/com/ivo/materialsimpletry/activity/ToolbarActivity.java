@@ -32,7 +32,7 @@ public class ToolbarActivity extends MatActivity {
     public void initToolbar(String title, boolean displayHomeAsUpEnable) {
 
         toolbar.setTitle(title);
-        setSupportActionBar(toolbar);   // 使 toolbar 有效，比如绑定 activity 菜单
+        setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(displayHomeAsUpEnable);
         }
@@ -51,7 +51,6 @@ public class ToolbarActivity extends MatActivity {
     @Override
     public MatPalette overridePalette(MatPalette palette) {
 
-        // 更细节的个性化主题，参考GreenMatter的Simple
         return ColorOverrider.getInstance(palette).applyOverride(palette);
     }
 
