@@ -49,18 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:color="?colorPrimary"
-            android:padding="16dp"
-            android:src="@mipmap/ic_launcher" />
-
         <Button
+            android:id="@+id/button"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

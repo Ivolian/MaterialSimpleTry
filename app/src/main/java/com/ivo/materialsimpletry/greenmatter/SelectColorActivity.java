@@ -4,18 +4,16 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.ivo.materialsimpletry.R;
+import com.ivo.materialsimpletry.activity.ToolbarActivity;
 import com.negusoft.greenmatter.MatPalette;
-import com.negusoft.greenmatter.activity.MatActivity;
 
-public class SelectColorActivity extends MatActivity {
+public class SelectColorActivity extends ToolbarActivity {
 
     private SwitchCompat mOverrideSwitch;
     private TextView mOverrideText;
@@ -26,13 +24,10 @@ public class SelectColorActivity extends MatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_color);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_select_color);
+        initToolbar("设置主题",true);
 
         MatPalette palette = getMatHelper().getPalette(this);
         final ColorOverrider overrider = ColorOverrider.getInstance(palette);
@@ -104,14 +99,6 @@ public class SelectColorActivity extends MatActivity {
         setComponentsEnable(overrider.enabled, overrider);
 	}
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     private void setComponentsEnable(boolean enabled, ColorOverrider overrider) {
         mPrimarySeekbar.setEnabled(enabled);
         mAccentSeekbar.setEnabled(enabled);
@@ -121,11 +108,6 @@ public class SelectColorActivity extends MatActivity {
         int accentColor = replaceHue(overrider.colorAccent, mAccentSeekbar.getProgress());
         mAccentPreview.setBackgroundColor(enabled ? accentColor : Color.GRAY);
 
-    }
-
-    @Override
-    public MatPalette overridePalette(MatPalette palette) {
-        return ColorOverrider.getInstance(palette).applyOverride(palette);
     }
 
     /** Get the hue component of the color [0..360]. */
