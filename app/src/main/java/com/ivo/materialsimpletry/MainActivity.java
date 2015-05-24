@@ -5,10 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
+import android.view.MenuItem;
 
+import com.ivo.materialsimpletry.activity.EditTextActivity;
 import com.ivo.materialsimpletry.activity.ToolbarActivity;
 import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
-import com.ivo.materialsimpletry.greenmatter.SelectColorActivity;
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.SnackbarManager;
 
@@ -21,7 +22,7 @@ public class MainActivity extends ToolbarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initToolbar("Material App",false);
+        initToolbar("Material App", false);
     }
 
     @Override
@@ -31,9 +32,9 @@ public class MainActivity extends ToolbarActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-        Intent intent = new Intent(this, SelectColorActivity.class);
+        Intent intent = new Intent(this, EditTextActivity.class);
         startActivityForResult(intent, 1);
 
         return true;
@@ -54,7 +55,6 @@ public class MainActivity extends ToolbarActivity {
 
     @OnClick(R.id.button)
     public void onClick() {
-
         SnackbarManager.show(
                 Snackbar.with(MainActivity.this)
                         .text("Different colors!!!")

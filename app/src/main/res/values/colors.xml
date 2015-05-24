@@ -5,4 +5,8 @@
     <color name="primaryDark">#ff3f4f2b</color>
     <color name="accent">#ff4ac358</color>
 
+    <color name="transparent">#BF000000</color>
+    <color name="black">#000000</color>
+    <color name="black_grey">#212121</color>
+    <color name="white">#FFFFFF</color>
 </resources>
