@@ -59,8 +59,8 @@ public class MainActivity extends ToolbarActivity {
                 Snackbar.with(MainActivity.this)
                         .text("Different colors!!!")
                         .margin(15, 15)
-                        .textColor(ColorOverrider.getInstance(null).colorPrimary)
-                        .color(0xffffff)
+                        .textColor(0x000000)
+                        .color(ColorOverrider.getInstance(null).colorAccent)
                         .duration(Snackbar.SnackbarDuration.LENGTH_SHORT));
     }
 
