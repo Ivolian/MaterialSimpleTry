@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.ivo.materialsimpletry.R;
 import com.ivo.materialsimpletry.activity.ToolbarActivity;
 import com.negusoft.greenmatter.MatPalette;
+import com.r0adkll.slidr.Slidr;
 
 public class SelectColorActivity extends ToolbarActivity {
 
@@ -27,7 +28,8 @@ public class SelectColorActivity extends ToolbarActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_color);
-        initToolbar("设置主题",true);
+        initToolbar("设置主题", true);
+        Slidr.attach(this);
 
         MatPalette palette = getMatHelper().getPalette(this);
         final ColorOverrider overrider = ColorOverrider.getInstance(palette);
