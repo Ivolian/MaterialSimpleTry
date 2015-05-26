@@ -14,6 +14,9 @@ import com.ivo.materialsimpletry.activity.ToolbarActivity;
 import com.negusoft.greenmatter.MatPalette;
 import com.r0adkll.slidr.Slidr;
 
+import app.mosn.zdepthshadowlayout.ZDepth;
+import butterknife.InjectView;
+
 public class SelectColorActivity extends ToolbarActivity {
 
     private SwitchCompat mOverrideSwitch;
@@ -22,6 +25,9 @@ public class SelectColorActivity extends ToolbarActivity {
     private SeekBar mAccentSeekbar;
     private View mPrimaryPreview;
     private View mAccentPreview;
+
+    @InjectView(R.id.shadow_seekbar)
+    SeekBar shadowSeekbar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -89,16 +95,57 @@ public class SelectColorActivity extends ToolbarActivity {
                 int color = replaceHue(overrider.colorAccent, progress);
                 mAccentPreview.setBackgroundColor(color);
             }
+
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) { }
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) { }
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         });
 
         mPrimaryPreview = findViewById(R.id.primary_preview);
         mAccentPreview = findViewById(R.id.accent_preview);
 
         setComponentsEnable(overrider.enabled, overrider);
+
+        shadowSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                switch (progress){
+                    case 0:
+                        zDepthShadowLayout.changeZDepth(ZDepth.Depth0);
+                        break;
+                    case 1:
+                        zDepthShadowLayout.changeZDepth(ZDepth.Depth1);
+                        break;
+                    case 2:
+                        zDepthShadowLayout.changeZDepth(ZDepth.Depth2);
+                        break;
+                    case 3:
+                        zDepthShadowLayout.changeZDepth(ZDepth.Depth3);
+                        break;
+                    case 4:
+                        zDepthShadowLayout.changeZDepth(ZDepth.Depth4);
+                        break;
+                    case 5:
+                        zDepthShadowLayout.changeZDepth(ZDepth.Depth5);
+                        break;
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
 	}
 
     private void setComponentsEnable(boolean enabled, ColorOverrider overrider) {

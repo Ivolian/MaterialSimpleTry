@@ -8,6 +8,7 @@ import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
 import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.activity.MatActivity;
 
+import app.mosn.zdepthshadowlayout.ZDepthShadowLayout;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -16,6 +17,9 @@ public class ToolbarActivity extends MatActivity {
 
     @InjectView(R.id.toolbar)
     public Toolbar toolbar;
+
+    @InjectView(R.id.zdepthshadowlayout)
+    public ZDepthShadowLayout zDepthShadowLayout;
 
     @Override
     public void setContentView(int layoutResID) {

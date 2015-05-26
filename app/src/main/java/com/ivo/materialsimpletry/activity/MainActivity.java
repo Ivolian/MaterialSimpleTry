@@ -1,4 +1,4 @@
-package com.ivo.materialsimpletry;
+package com.ivo.materialsimpletry.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,11 +7,13 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.ivo.materialsimpletry.activity.ToolbarActivity;
+import com.ivo.materialsimpletry.R;
 import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
 import com.ivo.materialsimpletry.greenmatter.SelectColorActivity;
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.SnackbarManager;
+
+import butterknife.OnClick;
 
 
 public class MainActivity extends ToolbarActivity {
@@ -51,14 +53,14 @@ public class MainActivity extends ToolbarActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-//    @OnClick(R.id.button)
+    @OnClick(R.id.button)
     public void onClick() {
         SnackbarManager.show(
                 Snackbar.with(MainActivity.this)
                         .text("Different colors!!!")
                         .margin(15, 15)
                         .textColor(ColorOverrider.getInstance(null).colorPrimary)
-                        .color(ColorOverrider.getInstance(null).colorAccent)
+                        .color(0xffffff)
                         .duration(Snackbar.SnackbarDuration.LENGTH_SHORT));
     }
 
