@@ -18,7 +18,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".greenmatter.SelectColorActivity" />
-        <activity android:name=".activity.EditTextActivity" />
     </application>
 
 </manifest>

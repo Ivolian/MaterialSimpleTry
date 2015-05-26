@@ -7,13 +7,11 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.ivo.materialsimpletry.activity.EditTextActivity;
 import com.ivo.materialsimpletry.activity.ToolbarActivity;
 import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
+import com.ivo.materialsimpletry.greenmatter.SelectColorActivity;
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.SnackbarManager;
-
-import butterknife.OnClick;
 
 
 public class MainActivity extends ToolbarActivity {
@@ -34,7 +32,7 @@ public class MainActivity extends ToolbarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        Intent intent = new Intent(this, EditTextActivity.class);
+        Intent intent = new Intent(this, SelectColorActivity.class);
         startActivityForResult(intent, 1);
 
         return true;
@@ -53,7 +51,7 @@ public class MainActivity extends ToolbarActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    @OnClick(R.id.button)
+//    @OnClick(R.id.button)
     public void onClick() {
         SnackbarManager.show(
                 Snackbar.with(MainActivity.this)
