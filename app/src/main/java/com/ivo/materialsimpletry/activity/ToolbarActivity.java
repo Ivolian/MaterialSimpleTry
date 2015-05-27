@@ -28,11 +28,6 @@ public class ToolbarActivity extends MatActivity {
         ButterKnife.inject(this);
     }
 
-    public void initToolbar(String title) {
-
-        initToolbar(title, false);
-    }
-
     public void initToolbar(String title, boolean displayHomeAsUpEnable) {
 
         toolbar.setTitle(title);

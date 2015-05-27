@@ -1,6 +1,5 @@
 package com.ivo.materialsimpletry.greenmatter;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
@@ -18,6 +17,8 @@ import app.mosn.zdepthshadowlayout.ZDepth;
 import butterknife.InjectView;
 
 public class SelectColorActivity extends ToolbarActivity {
+
+    public static final int SELECT_COLOR_SUCCESS = 2333;
 
     private SwitchCompat mOverrideSwitch;
     private TextView mOverrideText;
@@ -47,7 +48,7 @@ public class SelectColorActivity extends ToolbarActivity {
                 overrider.colorPrimary = replaceHue(overrider.colorPrimary, mPrimarySeekbar.getProgress());
                 overrider.colorAccent = replaceHue(overrider.colorAccent, mAccentSeekbar.getProgress());
 
-                setResult(Activity.RESULT_OK);
+                setResult(SELECT_COLOR_SUCCESS);
                 finish();
             }
         });
