@@ -39,12 +39,14 @@ public class MainActivity extends ToolbarActivity {
         if (savedInstanceState == null) {
             displayFragment(new MyFragment());
         }
+//             mTitle = savedInstanceState.getString(STATE_ACTIONBAR_TITLE);
     }
 
     private void initDrawLayout() {
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
+        drawerLayout.setDrawerShadow(R.drawable.navigation_drawer_shadow, Gravity.START);
     }
 
     @Override
