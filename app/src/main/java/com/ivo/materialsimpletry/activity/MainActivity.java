@@ -3,6 +3,9 @@ package com.ivo.materialsimpletry.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,17 +15,29 @@ import com.ivo.materialsimpletry.greenmatter.SelectColorActivity;
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.SnackbarManager;
 
-import butterknife.OnClick;
+import butterknife.InjectView;
 
 
 public class MainActivity extends ToolbarActivity {
+
+    @InjectView(R.id.drawer_layout)
+    DrawerLayout drawerLayout;
+
+    ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initToolbar("Material App", false);
+        initToolbar("Material App", true);
+        initDrawLayout();
+    }
+
+    private void initDrawLayout() {
+
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
     }
 
     @Override
@@ -54,7 +69,7 @@ public class MainActivity extends ToolbarActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    @OnClick(R.id.button)
+    //    @OnClick(R.id.button)
     public void onClick() {
         SnackbarManager.show(
                 Snackbar.with(MainActivity.this)
@@ -65,10 +80,26 @@ public class MainActivity extends ToolbarActivity {
                         .duration(Snackbar.SnackbarDuration.LENGTH_SHORT));
     }
 
-    private void startSelectColorActivity(){
+    private void startSelectColorActivity() {
 
         Intent intent = new Intent(this, SelectColorActivity.class);
         startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        actionBarDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(Gravity.START)) {
+            drawerLayout.closeDrawer(Gravity.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
 }
