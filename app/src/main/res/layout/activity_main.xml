@@ -8,11 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/material_blue_500">
+        >
 
         <include layout="@layout/toolbar" />
 
         <FrameLayout
+            android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -20,11 +21,9 @@
 
     <!-- The navigation drawer -->
     <LinearLayout
-        android:id="@+id/navDrawerPanel"
+        android:layout_gravity="start"
         android:layout_width="240dp"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:orientation="vertical"
         android:background="@android:color/holo_blue_bright"/>
 
 </android.support.v4.widget.DrawerLayout>

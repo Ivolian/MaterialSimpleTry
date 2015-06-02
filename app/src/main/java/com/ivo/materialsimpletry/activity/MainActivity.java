@@ -3,12 +3,15 @@ package com.ivo.materialsimpletry.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.ivo.materialsimpletry.MyFragment;
+import com.ivo.materialsimpletry.MyFragment2;
 import com.ivo.materialsimpletry.R;
 import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
 import com.ivo.materialsimpletry.greenmatter.SelectColorActivity;
@@ -32,6 +35,10 @@ public class MainActivity extends ToolbarActivity {
         setContentView(R.layout.activity_main);
         initToolbar("Material App", true);
         initDrawLayout();
+
+        if (savedInstanceState == null) {
+            displayFragment(new MyFragment());
+        }
     }
 
     private void initDrawLayout() {
@@ -50,7 +57,8 @@ public class MainActivity extends ToolbarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        startSelectColorActivity();
+        displayFragment(new MyFragment2());
+//        startSelectColorActivity();
         return true;
     }
 
@@ -100,6 +108,11 @@ public class MainActivity extends ToolbarActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    public void displayFragment(Fragment fragment) {
+
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, fragment).commit();
     }
 
 }
