@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Gravity;
@@ -60,7 +61,7 @@ public class MainActivity extends ToolbarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         displayFragment(new MyFragment2());
-//        startSelectColorActivity();
+        startSelectColorActivity();
         return true;
     }
 
@@ -105,8 +106,8 @@ public class MainActivity extends ToolbarActivity {
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(Gravity.START)) {
-            drawerLayout.closeDrawer(Gravity.START);
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }

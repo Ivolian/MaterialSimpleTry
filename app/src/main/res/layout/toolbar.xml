@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <app.mosn.zdepthshadowlayout.ZDepthShadowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:shadow="http://schemas.android.com/apk/res-auto"
     android:id="@+id/zdepthshadowlayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    shadow:z_depth="z_depth2"
+    shadow:z_depth="z_depth0"
+    shadow:z_depth_paddingBottom="z_depth3"
     shadow:z_depth_paddingLeft="z_depth0"
     shadow:z_depth_paddingRight="z_depth0"
     shadow:z_depth_paddingTop="z_depth0"
-    shadow:z_depth_paddingBottom="z_depth3"
     shadow:z_depth_shape="rect">
 
+    <!-- 调整toolbar和弹出菜单的样式 -->
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@drawable/gm__solid_primary" />
+        android:background="@drawable/gm__solid_primary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
 </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
