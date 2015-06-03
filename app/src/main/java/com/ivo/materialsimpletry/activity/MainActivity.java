@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ivo.materialsimpletry.MyFragment;
-import com.ivo.materialsimpletry.MyFragment2;
 import com.ivo.materialsimpletry.R;
 import com.ivo.materialsimpletry.greenmatter.SelectColorActivity;
 
@@ -56,9 +55,12 @@ public class MainActivity extends ToolbarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        displayFragment(new MyFragment2());
-        startSelectColorActivity();
-        return true;
+        switch (item.getItemId()) {
+            case R.id.theme:
+                startSelectColorActivity();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -76,18 +78,9 @@ public class MainActivity extends ToolbarActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-
-
-    private void startSelectColorActivity() {
-
-        Intent intent = new Intent(this, SelectColorActivity.class);
-        startActivityForResult(intent, 1);
-    }
-
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
         actionBarDrawerToggle.syncState();
     }
 
@@ -100,9 +93,15 @@ public class MainActivity extends ToolbarActivity {
         }
     }
 
-    public void displayFragment(Fragment fragment) {
+    private void displayFragment(Fragment fragment) {
 
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, fragment).commit();
+    }
+
+    private void startSelectColorActivity() {
+
+        Intent intent = new Intent(this, SelectColorActivity.class);
+        startActivityForResult(intent, 1);
     }
 
 }

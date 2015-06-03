@@ -3,7 +3,6 @@ package com.ivo.materialsimpletry.greenmatter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
@@ -27,18 +26,19 @@ public class SelectColorActivity extends ToolbarActivity {
     SwitchCompat mOverrideSwitch;
 
     @InjectView(R.id.primary_seekbar)
-     SeekBar mPrimarySeekbar;
+    SeekBar mPrimarySeekbar;
 
     @InjectView(R.id.accent_seekbar)
-     SeekBar mAccentSeekbar;
+    SeekBar mAccentSeekbar;
 
     @InjectView(R.id.primary_preview)
-     View mPrimaryPreview;
+    View mPrimaryPreview;
 
     @InjectView(R.id.accent_preview)
-     View mAccentPreview;
+    View mAccentPreview;
 
-     ToggleButton mLightToggle;
+    @InjectView(R.id.lightToggle)
+    ToggleButton mLightToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +105,6 @@ public class SelectColorActivity extends ToolbarActivity {
         });
 
         //
-        mLightToggle = (ToggleButton) findViewById(R.id.lightToggle);
         mLightToggle.setChecked(overrider.isLightTheme());
         mLightToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -115,14 +114,6 @@ public class SelectColorActivity extends ToolbarActivity {
             }
         });
         setComponentsEnable(overrider.isEnabled(), overrider);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void setComponentsEnable(boolean enabled, ColorOverrider overrider) {
