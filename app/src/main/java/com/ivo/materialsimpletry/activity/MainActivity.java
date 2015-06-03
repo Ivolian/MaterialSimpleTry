@@ -7,17 +7,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ivo.materialsimpletry.MyFragment;
 import com.ivo.materialsimpletry.MyFragment2;
 import com.ivo.materialsimpletry.R;
-import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
 import com.ivo.materialsimpletry.greenmatter.SelectColorActivity;
-import com.nispok.snackbar.Snackbar;
-import com.nispok.snackbar.SnackbarManager;
 
 import butterknife.InjectView;
 
@@ -47,7 +43,7 @@ public class MainActivity extends ToolbarActivity {
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
-        drawerLayout.setDrawerShadow(R.drawable.navigation_drawer_shadow, Gravity.START);
+        drawerLayout.setDrawerShadow(R.drawable.navigation_drawer_shadow, GravityCompat.START);
     }
 
     @Override
@@ -80,16 +76,7 @@ public class MainActivity extends ToolbarActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    //    @OnClick(R.id.button)
-    public void onClick() {
-        SnackbarManager.show(
-                Snackbar.with(MainActivity.this)
-                        .text("Different colors!!!")
-                        .margin(15, 15)
-                        .textColor(0x000000)
-                        .color(ColorOverrider.getInstance(null).colorAccent)
-                        .duration(Snackbar.SnackbarDuration.LENGTH_SHORT));
-    }
+
 
     private void startSelectColorActivity() {
 

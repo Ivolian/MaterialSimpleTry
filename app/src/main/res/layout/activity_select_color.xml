@@ -1,98 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_material_light">
+    android:layout_width="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/background_material_light">
 
-        <include layout="@layout/toolbar" />
+    <include layout="@layout/toolbar"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="32dp"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="32dp">
+            android:paddingRight="16dp">
 
             <android.support.v7.widget.SwitchCompat
                 android:id="@+id/overrideSwitch"
+                android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:checked="true" />
+                android:layout_gravity="center_vertical"/>
 
             <TextView
                 android:id="@+id/overrideText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="自定义主题"
                 android:layout_marginLeft="16dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="个性化主题"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:gravity="center_vertical"/>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:paddingTop="24dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="24dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="主色调"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <View
-                android:id="@+id/primary_preview"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@drawable/gm__solid_primary"
-                android:gravity="center_vertical" />
-
-        </LinearLayout>
-
-        <SeekBar
-            android:id="@+id/primary_seekbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:max="360" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="24dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
                 android:text="基色调"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center_vertical"/>
 
             <View
                 android:id="@+id/accent_preview"
+                android:background="@drawable/gm__solid_accent"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:background="@drawable/gm__solid_accent"
                 android:gravity="center_vertical" />
 
         </LinearLayout>
@@ -101,37 +67,58 @@
             android:id="@+id/accent_seekbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:max="360" />
+            android:max="360"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:paddingTop="24dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="24dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="主色调"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="标题栏阴影"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center_vertical"/>
+
+            <View
+                android:id="@+id/primary_preview"
+                android:background="@drawable/gm__solid_primary"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:gravity="center_vertical" />
 
         </LinearLayout>
 
         <SeekBar
-            android:id="@+id/shadow_seekbar"
+            android:id="@+id/primary_seekbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
+            android:max="360"/>
+
+        <ToggleButton
+            android:id="@+id/lightToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:max="3" />
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:drawableRight="?android:listChoiceIndicatorMultiple"
+            android:textOn="淡色系"
+            android:textOff="淡色系"
+            android:capitalize="none"/>
 
     </LinearLayout>
 
@@ -147,5 +134,3 @@
         fab:fab_colorPressed="?attr/colorPrimary" />
 
 </FrameLayout>
-
-

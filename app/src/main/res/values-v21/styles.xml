@@ -4,9 +4,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.GreenMatter.Light.DarkActionBar">
         <item name="matColorPrimary">@color/primary</item>
-        <item name="matColorPrimaryDark">@color/primaryDark</item>
+        <item name="matColorPrimaryDark">@color/primarydark</item>
         <item name="matColorAccent">@color/accent</item>
-        <!--<item name="android:windowIsTranslucent">true</item>-->
+         <!--<item name="android:windowIsTranslucent">true</item>-->
         <!--<item name="android:windowBackground">@android:color/transparent</item>-->
     </style>
 

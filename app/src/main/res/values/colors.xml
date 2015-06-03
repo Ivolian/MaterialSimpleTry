@@ -1,9 +1,12 @@
 <resources>
 
     <!-- Application's theme colors -->
-    <color name="primary">#ff516635</color>
-    <color name="primaryDark">#ff3f4f2b</color>
     <color name="accent">#ff4ac358</color>
+    <color name="primary">#ff78a143</color>
+    <color name="primary_light">#ffa9c781</color>
+    <color name="primarydark">#ff5b7d2e</color>
+    <color name="primarydark_light">#ff84b04c</color>
+
 
     <color name="transparent">#BF000000</color>
     <color name="black">#000000</color>
