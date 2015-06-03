@@ -3,6 +3,7 @@ package com.ivo.materialsimpletry.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,6 +25,9 @@ public class MainActivity extends ToolbarActivity {
 
     ActionBarDrawerToggle actionBarDrawerToggle;
 
+    @InjectView(R.id.nav_view)
+    NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -31,6 +35,7 @@ public class MainActivity extends ToolbarActivity {
         setContentView(R.layout.activity_main);
         initToolbar("Material App", true);
         initDrawLayout();
+        initNavigationView();
 
         if (savedInstanceState == null) {
             displayFragment(new MyFragment());
@@ -38,6 +43,18 @@ public class MainActivity extends ToolbarActivity {
 //             mTitle = savedInstanceState.getString(STATE_ACTIONBAR_TITLE);
     }
 
+    private void initNavigationView(){
+
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        return true;
+                    }
+                });
+    }
+    
     private void initDrawLayout() {
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);

@@ -6,8 +6,8 @@
         <item name="matColorPrimary">@color/primary</item>
         <item name="matColorPrimaryDark">@color/primarydark</item>
         <item name="matColorAccent">@color/accent</item>
-         <!--<item name="android:windowIsTranslucent">true</item>-->
-        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -15,10 +15,5 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="ToolbarTheme" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">?attr/matColorPrimary</item>
-        <item name="theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
-        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-    </style>
 
 </resources>
