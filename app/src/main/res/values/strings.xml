@@ -1,8 +1,9 @@
 <resources>
+
     <string name="app_name">MaterialSimpleTry</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="input">常见输入</string>
+    <string name="tablayout">Tab 布局</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
