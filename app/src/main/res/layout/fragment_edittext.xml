@@ -1,18 +1,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background_material_light"
     android:orientation="vertical"
     android:padding="16dp">
 
     <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/et"
+        android:id="@+id/edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="EditText"
         app:met_floatingLabel="highlight"
-        app:met_primaryColor="?attr/colorAccent"
-        android:hint="呵呵" />
+        app:met_primaryColor="?attr/colorAccent" />
+
+    <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
+        android:id="@+id/autocompletetext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="AutoCompleteText"
+        app:met_floatingLabel="highlight"
+        app:met_primaryColor="?attr/colorAccent" />
+
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+        android:id="@+id/betterspinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Spinner"
+        app:met_floatingLabel="highlight"
+        app:met_primaryColor="?attr/colorAccent" />
 
 </LinearLayout>
 
