@@ -10,7 +10,7 @@
         android:id="@+id/edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="EditText"
+        android:hint="输入框"
         app:met_floatingLabel="highlight"
         app:met_primaryColor="?attr/colorAccent" />
 
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="AutoCompleteText"
+        android:hint="自动提示"
         app:met_floatingLabel="highlight"
         app:met_primaryColor="?attr/colorAccent" />
 
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Spinner"
+        android:hint="下拉列表"
         app:met_floatingLabel="highlight"
         app:met_primaryColor="?attr/colorAccent" />
 
