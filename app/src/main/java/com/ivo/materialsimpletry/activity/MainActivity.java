@@ -14,7 +14,10 @@ import android.view.MenuItem;
 import com.ivo.materialsimpletry.R;
 import com.ivo.materialsimpletry.fragment.EditTextFragment;
 import com.ivo.materialsimpletry.fragment.TabLayoutFragment;
+import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
 import com.ivo.materialsimpletry.greenmatter.SelectColorActivity;
+import com.nispok.snackbar.Snackbar;
+import com.nispok.snackbar.SnackbarManager;
 
 import butterknife.InjectView;
 
@@ -72,6 +75,9 @@ public class MainActivity extends ToolbarActivity {
                             case R.id.nav_edittext:
                                 displayFragment(new EditTextFragment());
                                 setToolbarTitle(R.string.input);
+                                break;
+                            case R.id.nav_message:
+                                showMessage();
                                 break;
                         }
                         drawerLayout.closeDrawer(GravityCompat.START);
@@ -157,6 +163,16 @@ public class MainActivity extends ToolbarActivity {
     private void displayFragment(Fragment fragment) {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+    }
+
+    private void showMessage() {
+
+        SnackbarManager.show(
+                Snackbar.with(this)
+                        .position(Snackbar.SnackbarPosition.BOTTOM)
+                        .margin(15, 15)
+                        .color(ColorOverrider.getInstance(this).getColorPrimary())
+                        .text("提示信息"));
     }
 
 }
