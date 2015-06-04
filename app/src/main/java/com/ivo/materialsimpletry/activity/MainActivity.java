@@ -11,7 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.ivo.materialsimpletry.fragment.TextInputLayoutFragment;
+import com.ivo.materialsimpletry.MyFragment2;
 import com.ivo.materialsimpletry.R;
 import com.ivo.materialsimpletry.greenmatter.SelectColorActivity;
 
@@ -38,7 +38,7 @@ public class MainActivity extends ToolbarActivity {
         initNavigationView();
 
         if (savedInstanceState == null) {
-            displayFragment(new TextInputLayoutFragment());
+            displayFragment(new MyFragment2());
         }
 //             mTitle = savedInstanceState.getString(STATE_ACTIONBAR_TITLE);
     }
@@ -74,6 +74,7 @@ public class MainActivity extends ToolbarActivity {
 
         switch (item.getItemId()) {
             case R.id.theme:
+//                displayFragment(new MyFragment2());
                 startSelectColorActivity();
                 return true;
         }

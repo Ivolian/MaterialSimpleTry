@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ivo.materialsimpletry.R;
+import com.ivo.materialsimpletry.fragment.base.BaseFragment;
 
 import butterknife.InjectView;
 

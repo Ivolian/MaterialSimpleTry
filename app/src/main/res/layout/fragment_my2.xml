@@ -1,10 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_material_light"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/material_deep_teal_200">
+        android:layout_height="wrap_content"
+        app:met_floatingLabel="highlight"
+        app:met_primaryColor="?attr/colorAccent"
+        android:hint="呵呵" />
 
-
-    </LinearLayout>
+</LinearLayout>
 

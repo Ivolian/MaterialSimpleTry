@@ -1,4 +1,4 @@
-package com.ivo.materialsimpletry.fragment;
+package com.ivo.materialsimpletry.fragment.base;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
