@@ -10,9 +10,9 @@ import com.ivo.materialsimpletry.R;
 
 
 public class ProgressFragment extends Fragment {
-	
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.fragment_greenmatter_progress, null);
-	}
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_greenmatter_progress, container, false);
+    }
 }

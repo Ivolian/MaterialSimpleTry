@@ -9,7 +9,7 @@ import android.widget.SeekBar;
 import android.widget.ToggleButton;
 
 import com.ivo.materialsimpletry.R;
-import com.ivo.materialsimpletry.activity.ToolbarActivity;
+import com.ivo.materialsimpletry.activity.base.ToolbarActivity;
 import com.r0adkll.slidr.Slidr;
 
 import butterknife.InjectView;

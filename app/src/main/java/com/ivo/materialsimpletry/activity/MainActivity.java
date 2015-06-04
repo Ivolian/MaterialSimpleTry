@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ivo.materialsimpletry.R;
+import com.ivo.materialsimpletry.activity.base.ToolbarActivity;
 import com.ivo.materialsimpletry.fragment.EditTextFragment;
 import com.ivo.materialsimpletry.fragment.TabLayoutFragment;
 import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
