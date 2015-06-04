@@ -11,8 +11,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.ivo.materialsimpletry.MyFragment2;
 import com.ivo.materialsimpletry.R;
+import com.ivo.materialsimpletry.fragment.EditTextFragment;
+import com.ivo.materialsimpletry.fragment.TabLayoutFragment;
 import com.ivo.materialsimpletry.greenmatter.SelectColorActivity;
 
 import butterknife.InjectView;
@@ -28,33 +29,52 @@ public class MainActivity extends ToolbarActivity {
     @InjectView(R.id.nav_view)
     NavigationView navigationView;
 
+    String title = "Material App";
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initToolbar("Material App", true);
+        initToolbar(title, true);
         initDrawLayout();
         initNavigationView();
 
         if (savedInstanceState == null) {
-            displayFragment(new MyFragment2());
+            displayFragment(new TabLayoutFragment());
+            changeTitle("TabLayout");
+        } else {
+            changeTitle(savedInstanceState.getString("title"));
         }
 //             mTitle = savedInstanceState.getString(STATE_ACTIONBAR_TITLE);
     }
 
-    private void initNavigationView(){
+    private void initNavigationView() {
 
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
+
                         drawerLayout.closeDrawer(GravityCompat.START);
+
+                        switch (menuItem.getItemId()) {
+                            case R.id.nav_tablayout:
+                                displayFragment(new TabLayoutFragment());
+                                changeTitle("TabLayout");
+                                break;
+                            case R.id.nav_edittext:
+                                displayFragment(new EditTextFragment());
+                                changeTitle("EditText");
+                                break;
+                        }
                         return true;
                     }
                 });
     }
-    
+
     private void initDrawLayout() {
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
@@ -113,7 +133,19 @@ public class MainActivity extends ToolbarActivity {
 
     private void displayFragment(Fragment fragment) {
 
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+    }
+
+    private void changeTitle(String title) {
+        this.title = title;
+        toolbar.setTitle(title);
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("title", title);
     }
 
     private void startSelectColorActivity() {

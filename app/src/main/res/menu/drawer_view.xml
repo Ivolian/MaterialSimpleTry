@@ -18,13 +18,13 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_tablayout"
             android:icon="@drawable/ic_dashboard"
-            android:title="Home" />
+            android:title="TabLayout" />
         <item
-            android:id="@+id/nav_messages"
+            android:id="@+id/nav_edittext"
             android:icon="@drawable/ic_event"
-            android:title="Messages" />
+            android:title="EditText" />
         <item
             android:id="@+id/nav_friends"
             android:icon="@drawable/ic_headset"
