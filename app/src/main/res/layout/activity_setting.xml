@@ -7,13 +7,112 @@
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
         android:background="@color/background_material_light"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="复选框和开关"
+            android:textColor="?attr/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <LinearLayout
+            android:id="@+id/ll_checkbox"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
             android:background="?android:attr/selectableItemBackground"
-            android:clickable="true" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="复选框"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <include layout="@layout/gray_line" />
+
+        <LinearLayout
+            android:id="@+id/ll_switchcompat"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="开关"
+                android:textSize="17sp" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/switchcompat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!-- -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="对话框"
+            android:textColor="?attr/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ll_alert_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="确认对话框"
+            android:textSize="17sp" />
+
+        <include layout="@layout/gray_line" />
+
+        <TextView
+            android:id="@+id/ll_radio_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="选择对话框"
+            android:textSize="17sp" />
+
+        <include layout="@layout/gray_line" />
+
+        <TextView
+            android:id="@+id/ll_progress_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="登录对话框"
+            android:textSize="17sp" />
 
     </LinearLayout>
 
