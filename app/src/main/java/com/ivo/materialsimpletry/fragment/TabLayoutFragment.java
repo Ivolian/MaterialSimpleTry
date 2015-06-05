@@ -19,7 +19,7 @@ public class TabLayoutFragment extends BaseFragment {
     @Override
     public int getLayoutResourceId() {
 
-        return R.layout.fragment_tab_layout;
+        return R.layout.fragment_tablayout;
     }
 
     @InjectView(R.id.tabs)

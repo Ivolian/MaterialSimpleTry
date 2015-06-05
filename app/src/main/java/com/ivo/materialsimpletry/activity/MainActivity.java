@@ -80,6 +80,9 @@ public class MainActivity extends ToolbarActivity {
                             case R.id.nav_message:
                                 showMessage();
                                 break;
+                            case R.id.nav_setting:
+                                startSettingActivity();
+                                break;
                         }
                         drawerLayout.closeDrawer(GravityCompat.START);
                         return true;
@@ -148,6 +151,12 @@ public class MainActivity extends ToolbarActivity {
 
         Intent intent = new Intent(this, SelectColorActivity.class);
         startActivityForResult(intent, 1);
+    }
+
+    private void startSettingActivity() {
+
+        Intent intent = new Intent(this, SettingActivity.class);
+        startActivity(intent);
     }
 
     private void setToolbarTitle(int stringResourceId) {
