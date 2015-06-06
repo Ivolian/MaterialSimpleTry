@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<app.mosn.zdepthshadowlayout.ZDepthShadowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.ivo.materialsimpletry.mycode.ToolbarDepthShadowLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:shadow="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/zdepthshadowlayout"
+    android:id="@+id/toolbardepthshadowlayout"
     android:background="@android:color/transparent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    shadow:z_depth="z_depth0"
+    shadow:z_depth="z_depth1"
     shadow:z_depth_paddingBottom="z_depth3"
     shadow:z_depth_paddingLeft="z_depth0"
     shadow:z_depth_paddingRight="z_depth0"
@@ -22,4 +22,4 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-</app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
+</com.ivo.materialsimpletry.mycode.ToolbarDepthShadowLayout>

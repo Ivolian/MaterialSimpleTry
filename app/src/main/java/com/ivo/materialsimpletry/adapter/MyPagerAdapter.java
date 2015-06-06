@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.ivo.materialsimpletry.fragment.ChoicesFragment;
-import com.ivo.materialsimpletry.fragment.ProgressFragment;
+import com.ivo.materialsimpletry.greenmatter.fragment.ChoicesFragment;
+import com.ivo.materialsimpletry.greenmatter.fragment.ProgressFragment;
 import com.ivo.materialsimpletry.fragment.base.ButtonFragment;
 
 

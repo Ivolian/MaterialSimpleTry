@@ -1,4 +1,4 @@
-package com.ivo.materialsimpletry.fragment;
+package com.ivo.materialsimpletry.greenmatter.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

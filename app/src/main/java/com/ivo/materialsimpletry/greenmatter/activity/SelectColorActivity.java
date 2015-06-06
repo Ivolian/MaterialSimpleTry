@@ -1,4 +1,4 @@
-package com.ivo.materialsimpletry.greenmatter;
+package com.ivo.materialsimpletry.greenmatter.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.widget.ToggleButton;
 
 import com.ivo.materialsimpletry.R;
 import com.ivo.materialsimpletry.activity.base.ToolbarActivity;
+import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
+import com.ivo.materialsimpletry.greenmatter.ColorUtils;
+import com.ivo.materialsimpletry.mycode.ToolbarShadowHelper;
 import com.r0adkll.slidr.Slidr;
 
 import butterknife.InjectView;
@@ -40,12 +43,14 @@ public class SelectColorActivity extends ToolbarActivity {
     @InjectView(R.id.lightToggle)
     ToggleButton mLightToggle;
 
+    @InjectView(R.id.shadow_seekbar)
+    SeekBar mShadowSeekbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_color);
-        initToolbar("设置主题", true);
-
+        initToolbar("个性化", true);
         Slidr.attach(this);
 
         // 成功设置主题
@@ -57,6 +62,7 @@ public class SelectColorActivity extends ToolbarActivity {
                 overrider.setAccentHue(mAccentSeekbar.getProgress());
                 overrider.setPrimaryHue(mPrimarySeekbar.getProgress());
                 setResult(SELECT_COLOR_SUCCESS);
+                ToolbarShadowHelper.setDepth(mShadowSeekbar.getProgress());
                 finish();
             }
         });
@@ -114,6 +120,22 @@ public class SelectColorActivity extends ToolbarActivity {
             }
         });
         setComponentsEnable(overrider.isEnabled(), overrider);
+
+        mShadowSeekbar.setProgress(ToolbarShadowHelper.getDepth());
+        mShadowSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                toolbarDepthShadowLayout.changeZDepth(ToolbarShadowHelper.ZDEPTHS[progress]);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
     }
 
     private void setComponentsEnable(boolean enabled, ColorOverrider overrider) {

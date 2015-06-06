@@ -5,10 +5,10 @@ import android.view.MenuItem;
 
 import com.ivo.materialsimpletry.R;
 import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
+import com.ivo.materialsimpletry.mycode.ToolbarDepthShadowLayout;
 import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.activity.MatActivity;
 
-import app.mosn.zdepthshadowlayout.ZDepthShadowLayout;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -18,8 +18,8 @@ public class ToolbarActivity extends MatActivity {
     @InjectView(R.id.toolbar)
     public Toolbar toolbar;
 
-    @InjectView(R.id.zdepthshadowlayout)
-    public ZDepthShadowLayout zDepthShadowLayout;
+    @InjectView(R.id.toolbardepthshadowlayout)
+    public ToolbarDepthShadowLayout toolbarDepthShadowLayout;
 
     @Override
     public void setContentView(int layoutResID) {
