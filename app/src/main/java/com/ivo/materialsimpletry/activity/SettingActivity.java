@@ -10,6 +10,7 @@ import com.ivo.materialsimpletry.R;
 import com.ivo.materialsimpletry.activity.base.ToolbarActivity;
 import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
 import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrConfig;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -29,8 +30,12 @@ public class SettingActivity extends ToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         initToolbar("设置", true);
+//
+        SlidrConfig config = new SlidrConfig.Builder()
+                .sensitivity(0.1f)
+                .build();
 
-        Slidr.attach(this);
+        Slidr.attach(this,config);
     }
 
     @OnClick(R.id.ll_checkbox)

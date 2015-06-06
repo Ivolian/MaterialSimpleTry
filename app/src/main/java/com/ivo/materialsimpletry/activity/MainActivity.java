@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,10 +19,12 @@ import com.ivo.materialsimpletry.fragment.EditTextFragment;
 import com.ivo.materialsimpletry.fragment.TabLayoutFragment;
 import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
 import com.ivo.materialsimpletry.greenmatter.SelectColorActivity;
+import com.melnykov.fab.FloatingActionButton;
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.SnackbarManager;
 
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 
 public class MainActivity extends ToolbarActivity {
@@ -37,6 +41,8 @@ public class MainActivity extends ToolbarActivity {
 
     final String TITLE = "title";
 
+    @InjectView(R.id.fab)
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +61,7 @@ public class MainActivity extends ToolbarActivity {
         }
     }
 
+
     private void initDrawLayout() {
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
@@ -68,8 +75,13 @@ public class MainActivity extends ToolbarActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        drawerLayout.closeDrawer(GravityCompat.START);
+
+                        Fragment fragment = null;
+                        String title = null;
                         switch (menuItem.getItemId()) {
                             case R.id.nav_tablayout:
+                                fragment = new TabLayoutFragment();
                                 displayFragment(new TabLayoutFragment());
                                 setToolbarTitle(R.string.tablayout);
                                 break;
@@ -77,14 +89,7 @@ public class MainActivity extends ToolbarActivity {
                                 displayFragment(new EditTextFragment());
                                 setToolbarTitle(R.string.input);
                                 break;
-                            case R.id.nav_message:
-                                showMessage();
-                                break;
-                            case R.id.nav_setting:
-                                startSettingActivity();
-                                break;
                         }
-                        drawerLayout.closeDrawer(GravityCompat.START);
                         return true;
                     }
                 });
@@ -103,7 +108,8 @@ public class MainActivity extends ToolbarActivity {
 
         switch (item.getItemId()) {
             case R.id.select_color:
-                startSelectColorActivity();
+                drawerLayout.openDrawer(GravityCompat.END);
+//                startSelectColorActivity();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -118,11 +124,9 @@ public class MainActivity extends ToolbarActivity {
         }
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        // 设置主题颜色之后
         if (resultCode == SelectColorActivity.SELECT_COLOR_SUCCESS) {
             new Handler().post(new Runnable() {
                 @Override
@@ -147,10 +151,19 @@ public class MainActivity extends ToolbarActivity {
     }
 
 
-    private void startSelectColorActivity() {
+    @OnClick(R.id.fab)
+    public void startSelectColorActivity() {
 
         Intent intent = new Intent(this, SelectColorActivity.class);
-        startActivityForResult(intent, 1);
+        ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this, fab, "fab");
+        ActivityCompat.startActivityForResult(this, intent, 1, activityOptions.toBundle());
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+
+        super.onNewIntent(intent);
+        drawerLayout.closeDrawers();
     }
 
     private void startSettingActivity() {

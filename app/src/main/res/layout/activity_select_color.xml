@@ -131,6 +131,7 @@
         android:layout_marginTop="28dp"
         android:src="@drawable/ic_brush_white_24dp"
         fab:fab_colorNormal="?attr/colorAccent"
+        android:transitionName="fab"
         fab:fab_colorPressed="?attr/colorPrimary" />
 
 </FrameLayout>
