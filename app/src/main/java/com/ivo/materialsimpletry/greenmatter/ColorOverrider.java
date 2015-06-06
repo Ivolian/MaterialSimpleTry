@@ -31,7 +31,7 @@ public class ColorOverrider {
     private int mColorPrimaryDark;
     private int mColorPrimaryLight;
     private int mColorAccent;
-    private boolean mLightTheme = true;
+    private boolean mLightTheme = false;
 
     private ColorOverrider(int colorAccent, int colorPrimaryDark, int colorPrimaryLight) {
         mColorAccent = colorAccent;
