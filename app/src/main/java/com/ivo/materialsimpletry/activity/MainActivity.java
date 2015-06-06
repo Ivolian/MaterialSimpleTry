@@ -1,6 +1,5 @@
 package com.ivo.materialsimpletry.activity;
 
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,11 +12,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TimePicker;
 
 import com.ivo.materialsimpletry.R;
 import com.ivo.materialsimpletry.activity.base.ToolbarActivity;
-import com.ivo.materialsimpletry.greenmatter.fragment.EditTextFragment;
+import com.ivo.materialsimpletry.fragment.EditTextFragment;
 import com.ivo.materialsimpletry.fragment.TabLayoutFragment;
 import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
 import com.ivo.materialsimpletry.greenmatter.activity.SelectColorActivity;
@@ -111,14 +109,16 @@ public class MainActivity extends ToolbarActivity {
         switch (item.getItemId()) {
             case R.id.select_color:
 
-                new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
-                    }
-                },1,1,true).show();
-//                drawerLayout.openDrawer(GravityCompat.END);
-//                startSelectColorActivity();
+//                new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+//                    @Override
+//                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+//
+//                    }
+//                }, 1, 1, true).show();
+                drawerLayout.openDrawer(GravityCompat.END);
+                return true;
+            case R.id.setting:
+                startSettingActivity();
                 return true;
         }
         return super.onOptionsItemSelected(item);

@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.ivo.materialsimpletry.greenmatter.fragment.ChoicesFragment;
 import com.ivo.materialsimpletry.greenmatter.fragment.ProgressFragment;
-import com.ivo.materialsimpletry.fragment.base.ButtonFragment;
+import com.ivo.materialsimpletry.greenmatter.fragment.ButtonFragment;
 
 
 public class MyPagerAdapter extends FragmentStatePagerAdapter {
