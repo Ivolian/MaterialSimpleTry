@@ -10,7 +10,6 @@ import com.ivo.materialsimpletry.R;
 import com.ivo.materialsimpletry.activity.base.ToolbarActivity;
 import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
 import com.r0adkll.slidr.Slidr;
-import com.r0adkll.slidr.model.SlidrConfig;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -30,12 +29,7 @@ public class SettingActivity extends ToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         initToolbar("设置", true);
-//
-        SlidrConfig config = new SlidrConfig.Builder()
-                .sensitivity(0.1f)
-                .build();
-
-        Slidr.attach(this,config);
+        Slidr.attach(this);
     }
 
     @OnClick(R.id.ll_checkbox)
@@ -54,8 +48,8 @@ public class SettingActivity extends ToolbarActivity {
     public void showAlertDialog() {
 
         new MaterialDialog.Builder(this)
-                .title("提示信息")
-                .content("内容")
+                .title("请确认")
+                .content("Material Design Is Cool !")
                 .positiveColor(ColorOverrider.getInstance(this).getColorPrimary())
                 .positiveText("确定")
                 .negativeText("取消")
@@ -66,20 +60,20 @@ public class SettingActivity extends ToolbarActivity {
     public void showRadioDialog() {
 
         new MaterialDialog.Builder(this)
-                .title("选择")
-                .items(new CharSequence[]{"选项 1", "选项 2", "选项 3", "选项 4"})
-                .itemsCallbackSingleChoice(1, new MaterialDialog.ListCallbackSingleChoice() {
+                .title("请选择")
+                .items(new CharSequence[]{"中国", "加拿大", "澳大利亚"})
+                .itemsCallbackSingleChoice(0, new MaterialDialog.ListCallbackSingleChoice() {
                     @Override
                     public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
                         return true;
                     }
                 })
-                .positiveText("确认")
+                .positiveText("确定")
                 .show();
     }
 
     @OnClick(R.id.ll_progress_dialog)
-    public void showProgressDialog(){
+    public void showProgressDialog() {
 
         new MaterialDialog.Builder(this)
                 .title("加载中")
