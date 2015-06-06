@@ -22,7 +22,8 @@ public class ToolbarDepthShadowLayout extends ZDepthShadowLayout {
 
     @Override
     protected void onAttachedToWindow() {
+
+        setZDepthBeforeAttachedToWindow(ToolbarShadowHelper.getDepth());
         super.onAttachedToWindow();
-        changeZDepth(ToolbarShadowHelper.getZDepth());
     }
 }
