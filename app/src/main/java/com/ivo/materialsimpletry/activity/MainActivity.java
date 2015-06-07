@@ -168,13 +168,6 @@ public class MainActivity extends ToolbarActivity {
         ActivityCompat.startActivityForResult(this, intent, 1, activityOptions.toBundle());
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-
-        super.onNewIntent(intent);
-        drawerLayout.closeDrawers();
-    }
-
     private void startSettingActivity() {
 
         Intent intent = new Intent(this, SettingActivity.class);

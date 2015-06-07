@@ -11,12 +11,12 @@ import butterknife.ButterKnife;
 
 public abstract class BaseFragment extends Fragment {
 
-    abstract public int getLayoutResourceId();
+    abstract public int getLayoutResId();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(getLayoutResourceId(), container, false);
+        View view = inflater.inflate(getLayoutResId(), container, false);
         ButterKnife.inject(this, view);
 
         return view;

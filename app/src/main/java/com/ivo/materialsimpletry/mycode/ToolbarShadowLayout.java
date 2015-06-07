@@ -6,17 +6,17 @@ import android.util.AttributeSet;
 import app.mosn.zdepthshadowlayout.ZDepthShadowLayout;
 
 
-public class ToolbarDepthShadowLayout extends ZDepthShadowLayout {
+public class ToolbarShadowLayout extends ZDepthShadowLayout {
 
-    public ToolbarDepthShadowLayout(Context context) {
+    public ToolbarShadowLayout(Context context) {
         super(context);
     }
 
-    public ToolbarDepthShadowLayout(Context context, AttributeSet attrs) {
+    public ToolbarShadowLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ToolbarDepthShadowLayout(Context context, AttributeSet attrs, int defStyle) {
+    public ToolbarShadowLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

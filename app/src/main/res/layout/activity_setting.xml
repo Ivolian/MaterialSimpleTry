@@ -45,7 +45,7 @@
         <include layout="@layout/gray_line" />
 
         <LinearLayout
-            android:id="@+id/ll_switchcompat"
+            android:id="@+id/ll_switch_compat"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="?android:attr/selectableItemBackground"
@@ -61,7 +61,7 @@
                 android:textSize="17sp" />
 
             <android.support.v7.widget.SwitchCompat
-                android:id="@+id/switchcompat"
+                android:id="@+id/switch_compat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -91,7 +91,7 @@
         <include layout="@layout/gray_line" />
 
         <TextView
-            android:id="@+id/ll_radio_dialog"
+            android:id="@+id/ll_choice_dialog"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="?android:attr/selectableItemBackground"

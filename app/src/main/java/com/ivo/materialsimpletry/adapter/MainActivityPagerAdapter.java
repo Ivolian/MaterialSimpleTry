@@ -9,9 +9,9 @@ import com.ivo.materialsimpletry.greenmatter.fragment.ProgressFragment;
 import com.ivo.materialsimpletry.greenmatter.fragment.ButtonFragment;
 
 
-public class MyPagerAdapter extends FragmentStatePagerAdapter {
+public class MainActivityPagerAdapter extends FragmentStatePagerAdapter {
 
-    public MyPagerAdapter(FragmentManager fm) {
+    public MainActivityPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

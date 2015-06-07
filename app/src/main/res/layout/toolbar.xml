@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ivo.materialsimpletry.mycode.ToolbarDepthShadowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.ivo.materialsimpletry.mycode.ToolbarShadowLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:shadow="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/toolbardepthshadowlayout"
+    android:id="@+id/toolbar_shadow_layout"
     android:background="@android:color/transparent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -22,4 +22,4 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-</com.ivo.materialsimpletry.mycode.ToolbarDepthShadowLayout>
+</com.ivo.materialsimpletry.mycode.ToolbarShadowLayout>

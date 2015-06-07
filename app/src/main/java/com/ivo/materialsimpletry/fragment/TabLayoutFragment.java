@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ivo.materialsimpletry.R;
-import com.ivo.materialsimpletry.adapter.MyPagerAdapter;
+import com.ivo.materialsimpletry.adapter.MainActivityPagerAdapter;
 import com.ivo.materialsimpletry.fragment.base.BaseFragment;
 
 import butterknife.InjectView;
@@ -17,7 +17,7 @@ import butterknife.InjectView;
 public class TabLayoutFragment extends BaseFragment {
 
     @Override
-    public int getLayoutResourceId() {
+    public int getLayoutResId() {
 
         return R.layout.fragment_tablayout;
     }
@@ -40,7 +40,7 @@ public class TabLayoutFragment extends BaseFragment {
 
     private void initViews() {
 
-        viewPager.setAdapter(new MyPagerAdapter(getActivity().getSupportFragmentManager()));
+        viewPager.setAdapter(new MainActivityPagerAdapter(getActivity().getSupportFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
     }
 

@@ -15,6 +15,7 @@ import com.ivo.materialsimpletry.greenmatter.ColorUtils;
 import com.ivo.materialsimpletry.mycode.ToolbarShadowHelper;
 import com.r0adkll.slidr.Slidr;
 
+import app.mosn.zdepthshadowlayout.ZDepth;
 import butterknife.InjectView;
 
 
@@ -121,11 +122,12 @@ public class SelectColorActivity extends ToolbarActivity {
         });
         setComponentsEnable(overrider.isEnabled(), overrider);
 
+        final ZDepth[] ZDEPTHS = {ZDepth.Depth0, ZDepth.Depth1, ZDepth.Depth2, ZDepth.Depth3};
         mShadowSeekbar.setProgress(ToolbarShadowHelper.getDepth());
         mShadowSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                toolbarDepthShadowLayout.changeZDepth(ToolbarShadowHelper.ZDEPTHS[progress]);
+                toolbarShadowLayout.changeZDepth(ZDEPTHS[progress]);
             }
 
             @Override

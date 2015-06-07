@@ -17,17 +17,26 @@
         app:met_primaryColor="?attr/colorAccent" />
 
     <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
-        android:id="@+id/autocompletetext"
+        android:id="@+id/auto_complete_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="自动提示"
+        app:met_floatingLabel="highlight"
         app:met_iconRight="@drawable/ic_event"
+        app:met_primaryColor="?attr/colorAccent" />
+
+    <com.rengwuxian.materialedittext.MaterialMultiAutoCompleteTextView
+        android:id="@+id/multi_auto_complete_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="自动提示 (多选)"
         app:met_floatingLabel="highlight"
         app:met_primaryColor="?attr/colorAccent" />
 
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-        android:id="@+id/betterspinner"
+        android:id="@+id/better_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
