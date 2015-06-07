@@ -35,7 +35,7 @@
                 android:layout_height="56dp"
                 android:background="@drawable/gm__solid_primary"
                 app:tabSelectedTextColor="#ffffff"
-                app:tabTextColor="#dddddd" />
+                app:tabTextColor="#eeeeee" />
 
         </LinearLayout>
 

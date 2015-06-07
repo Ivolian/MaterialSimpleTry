@@ -1,13 +1,12 @@
 <resources>
 
-    <string name="app_name">MaterialSimpleTry</string>
+    <string name="app_name">Juice</string>
 
     <string name="nav_input">输入</string>
     <string name="nav_choice">选择</string>
     <string name="nav_progress">进度条</string>
     <string name="nav_button">按钮</string>
 
-    <string name="tablayout">Tab 布局</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
