@@ -13,6 +13,6 @@ public class ButtonFragment extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.fragment_greenmatter_buttons, null);
+		return inflater.inflate(R.layout.fragment_greenmatter_button, null);
 	}
 }

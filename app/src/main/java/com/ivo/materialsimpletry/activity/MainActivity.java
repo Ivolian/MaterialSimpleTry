@@ -15,10 +15,12 @@ import android.view.MenuItem;
 
 import com.ivo.materialsimpletry.R;
 import com.ivo.materialsimpletry.activity.base.ToolbarActivity;
-import com.ivo.materialsimpletry.fragment.EditTextFragment;
-import com.ivo.materialsimpletry.fragment.TabLayoutFragment;
+import com.ivo.materialsimpletry.fragment.InputFragment;
 import com.ivo.materialsimpletry.greenmatter.ColorOverrider;
 import com.ivo.materialsimpletry.greenmatter.activity.SelectColorActivity;
+import com.ivo.materialsimpletry.greenmatter.fragment.ButtonFragment;
+import com.ivo.materialsimpletry.greenmatter.fragment.ChoicesFragment;
+import com.ivo.materialsimpletry.greenmatter.fragment.ProgressFragment;
 import com.melnykov.fab.FloatingActionButton;
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.SnackbarManager;
@@ -29,38 +31,37 @@ import butterknife.OnClick;
 
 public class MainActivity extends ToolbarActivity {
 
+    final String TOOLBAR_TITLE = "toolbar_title";
+
     @InjectView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
-
-    ActionBarDrawerToggle actionBarDrawerToggle;
 
     @InjectView(R.id.nav_view)
     NavigationView navigationView;
 
-    String title = "";
-
-    final String TITLE = "title";
-
     @InjectView(R.id.fab)
     FloatingActionButton fab;
+
+    ActionBarDrawerToggle actionBarDrawerToggle;
+
+    String toolbarTitle = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initToolbar(title, true);
+        initToolbar(toolbarTitle, true);
         initDrawLayout();
         initNavigationView();
 
         if (savedInstanceState == null) {
-            displayFragment(new TabLayoutFragment());
-            setToolbarTitle(R.string.tablayout);
+            displayFragment(new InputFragment());
+            setToolbarTitle(R.string.nav_input);
         } else {
-            setToolbarTitle(savedInstanceState.getString(TITLE));
+            setToolbarTitle(savedInstanceState.getString(TOOLBAR_TITLE));
         }
     }
-
 
     private void initDrawLayout() {
 
@@ -76,18 +77,22 @@ public class MainActivity extends ToolbarActivity {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         drawerLayout.closeDrawer(GravityCompat.START);
-
-                        Fragment fragment = null;
-                        String title = null;
                         switch (menuItem.getItemId()) {
-                            case R.id.nav_tablayout:
-                                fragment = new TabLayoutFragment();
-                                displayFragment(new TabLayoutFragment());
-                                setToolbarTitle(R.string.tablayout);
+                            case R.id.nav_input:
+                                displayFragment(new InputFragment());
+                                setToolbarTitle(R.string.nav_input);
                                 break;
-                            case R.id.nav_edittext:
-                                displayFragment(new EditTextFragment());
-                                setToolbarTitle(R.string.input);
+                            case R.id.nav_choice:
+                                displayFragment(new ChoicesFragment());
+                                setToolbarTitle(R.string.nav_choice);
+                                break;
+                            case R.id.nav_progress:
+                                displayFragment(new ProgressFragment());
+                                setToolbarTitle(R.string.nav_progress);
+                                break;
+                            case R.id.nav_button:
+                                displayFragment(new ButtonFragment());
+                                setToolbarTitle(R.string.nav_button);
                                 break;
                         }
                         return true;
@@ -108,13 +113,6 @@ public class MainActivity extends ToolbarActivity {
 
         switch (item.getItemId()) {
             case R.id.select_color:
-
-//                new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
-//                    @Override
-//                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-//
-//                    }
-//                }, 1, 1, true).show();
                 drawerLayout.openDrawer(GravityCompat.END);
                 return true;
             case R.id.setting:
@@ -126,8 +124,8 @@ public class MainActivity extends ToolbarActivity {
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
+        if (drawerLayout.isDrawerOpen(GravityCompat.START) || drawerLayout.isDrawerOpen(GravityCompat.END)) {
+            drawerLayout.closeDrawers();
         } else {
             super.onBackPressed();
         }
@@ -156,7 +154,7 @@ public class MainActivity extends ToolbarActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(TITLE, title);
+        outState.putString(TOOLBAR_TITLE, toolbarTitle);
     }
 
 
@@ -174,15 +172,15 @@ public class MainActivity extends ToolbarActivity {
         startActivity(intent);
     }
 
-    private void setToolbarTitle(int stringResourceId) {
+    private void setToolbarTitle(int stringResId) {
 
-        setToolbarTitle(getResources().getString(stringResourceId));
+        setToolbarTitle(getResources().getString(stringResId));
     }
 
-    private void setToolbarTitle(String title) {
+    private void setToolbarTitle(String toolbarTitle) {
 
-        this.title = title;
-        toolbar.setTitle(title);
+        this.toolbarTitle = toolbarTitle;
+        toolbar.setTitle(toolbarTitle);
     }
 
     private void displayFragment(Fragment fragment) {
@@ -199,5 +197,4 @@ public class MainActivity extends ToolbarActivity {
                         .color(ColorOverrider.getInstance(this).getColorPrimary())
                         .text("提示信息"));
     }
-
 }

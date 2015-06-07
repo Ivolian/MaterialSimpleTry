@@ -28,9 +28,9 @@ public class ToolbarActivity extends MatActivity {
         ButterKnife.inject(this);
     }
 
-    public void initToolbar(String title, boolean displayHomeAsUpEnable) {
+    public void initToolbar(String toolbarTitle, boolean displayHomeAsUpEnable) {
 
-        toolbar.setTitle(title);
+        toolbar.setTitle(toolbarTitle);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(displayHomeAsUpEnable);

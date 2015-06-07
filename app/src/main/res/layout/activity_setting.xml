@@ -42,7 +42,7 @@
 
         </LinearLayout>
 
-        <include layout="@layout/gray_line" />
+        <include layout="@layout/divide_line" />
 
         <LinearLayout
             android:id="@+id/ll_switch_compat"
@@ -88,7 +88,7 @@
             android:text="确认对话框"
             android:textSize="17sp" />
 
-        <include layout="@layout/gray_line" />
+        <include layout="@layout/divide_line" />
 
         <TextView
             android:id="@+id/ll_choice_dialog"
@@ -100,7 +100,7 @@
             android:text="选择对话框"
             android:textSize="17sp" />
 
-        <include layout="@layout/gray_line" />
+        <include layout="@layout/divide_line" />
 
         <TextView
             android:id="@+id/ll_progress_dialog"

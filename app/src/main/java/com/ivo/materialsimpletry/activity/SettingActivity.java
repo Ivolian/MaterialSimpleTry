@@ -2,6 +2,7 @@ package com.ivo.materialsimpletry.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
+import android.view.View;
 import android.widget.CheckBox;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -61,6 +62,12 @@ public class SettingActivity extends ToolbarActivity {
         new MaterialDialog.Builder(this)
                 .title("请选择")
                 .items(new CharSequence[]{"中国", "加拿大", "澳大利亚"})
+                .itemsCallbackSingleChoice(0, new MaterialDialog.ListCallbackSingleChoice() {
+                    @Override
+                    public boolean onSelection(MaterialDialog materialDialog, View view, int i, CharSequence charSequence) {
+                        return false;
+                    }
+                })
                 .positiveText("确定")
                 .show();
     }

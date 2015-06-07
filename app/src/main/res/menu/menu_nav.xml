@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_tablayout"
-            android:icon="@drawable/ic_dashboard"
-            android:title="@string/tablayout" />
+            android:id="@+id/nav_input"
+            android:icon="@drawable/ic_nav_input"
+            android:title="@string/nav_input" />
         <item
-            android:id="@+id/nav_edittext"
-            android:icon="@drawable/ic_event"
-            android:title="@string/input" />
+            android:id="@+id/nav_choice"
+            android:icon="@drawable/ic_nav_choice"
+            android:title="@string/nav_choice" />
         <item
-            android:id="@+id/nav_message"
-            android:icon="@drawable/ic_headset"
-            android:title="提示信息" />
+            android:id="@+id/nav_progress"
+            android:icon="@drawable/ic_nav_progress"
+            android:title="@string/nav_progress" />
         <item
-            android:id="@+id/nav_setting"
-            android:icon="@drawable/ic_forum"
-            android:title="设置" />
+            android:id="@+id/nav_button"
+            android:icon="@drawable/ic_nav_button"
+            android:title="@string/nav_button" />
     </group>
-
     <item android:title="其他">
         <menu>
             <item
-                android:icon="@drawable/ic_dashboard"
+                android:icon="@drawable/ic_exposure_plus_1_black_48dp"
                 android:title="可选项 1" />
             <item
-                android:icon="@drawable/ic_forum"
+                android:icon="@drawable/ic_exposure_plus_2_black_48dp"
                 android:title="可选项 2" />
         </menu>
     </item>
-
 </menu>

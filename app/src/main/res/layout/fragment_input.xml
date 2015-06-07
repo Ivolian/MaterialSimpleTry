@@ -1,0 +1,62 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_material_light"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入框"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="?attr/colorAccent" />
+
+        <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
+            android:id="@+id/auto_complete_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="自动提示"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="?attr/colorAccent" />
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/better_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="下拉列表"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="?attr/colorAccent" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:editable="false"
+            android:hint="选择日期"
+            app:met_floatingLabel="highlight"
+            app:met_iconRight="@drawable/ic_date"
+            app:met_primaryColor="?attr/colorAccent" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:editable="false"
+            android:hint="选择时间"
+            app:met_floatingLabel="highlight"
+            app:met_iconLeft="@drawable/ic_time"
+            app:met_primaryColor="?attr/colorAccent" />
+
+    </LinearLayout>
+
+</ScrollView>
