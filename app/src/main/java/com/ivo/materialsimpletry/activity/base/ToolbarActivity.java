@@ -1,5 +1,6 @@
 package com.ivo.materialsimpletry.activity.base;
 
+import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
@@ -60,6 +61,12 @@ public class ToolbarActivity extends MatActivity {
 //        palette.setColorButtonNormal(0xff888800);
 //        palette.setColorSwitchThumbNormal(Color.WHITE);
 //        return super.overridePalette(palette);
+    }
+
+    public void startActivity(Class activityClass) {
+
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
     }
 
 }

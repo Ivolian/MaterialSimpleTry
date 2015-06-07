@@ -110,13 +110,15 @@ public class MainActivity extends ToolbarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case R.id.select_color:
                 drawerLayout.openDrawer(GravityCompat.END);
                 return true;
             case R.id.setting:
-                startSettingActivity();
+                startActivity(SettingActivity.class);
+                return true;
+            case R.id.tablayout:
+                startActivity(TabLayoutActivity.class);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -164,12 +166,6 @@ public class MainActivity extends ToolbarActivity {
         Intent intent = new Intent(this, SelectColorActivity.class);
         ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this, fab, "fab");
         ActivityCompat.startActivityForResult(this, intent, 1, activityOptions.toBundle());
-    }
-
-    private void startSettingActivity() {
-
-        Intent intent = new Intent(this, SettingActivity.class);
-        startActivity(intent);
     }
 
     private void setToolbarTitle(int stringResId) {
