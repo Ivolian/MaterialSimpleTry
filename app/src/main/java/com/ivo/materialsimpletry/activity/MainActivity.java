@@ -76,7 +76,6 @@ public class MainActivity extends ToolbarActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        drawerLayout.closeDrawer(GravityCompat.START);
                         switch (menuItem.getItemId()) {
                             case R.id.nav_input:
                                 displayFragment(new InputFragment());
@@ -95,6 +94,7 @@ public class MainActivity extends ToolbarActivity {
                                 setToolbarTitle(R.string.nav_button);
                                 break;
                         }
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         return true;
                     }
                 });
@@ -179,6 +179,10 @@ public class MainActivity extends ToolbarActivity {
         toolbar.setTitle(toolbarTitle);
     }
 
+    // TODO 直接 replace 会出现顿卡现象，还是预留 fragment 比较好
+    // TODO 方法1 使用 viewpager 管理 fragment
+    // TODO 方法2 使用 add hide 方法
+    // TODO 方法3 看看别人是怎么做的
     private void displayFragment(Fragment fragment) {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
